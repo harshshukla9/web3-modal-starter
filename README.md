@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web3 Modal Starter
+![Screenshot from 2025-04-02 03-13-32](https://github.com/user-attachments/assets/8eda8cd7-ebbe-4941-ae33-91213eacfa4d)
+
+![Screenshot from 2025-04-02 03-13-38](https://github.com/user-attachments/assets/0df9b81a-3df8-4f37-9f4b-85d52c6b52aa)
+
+![Screenshot from 2025-04-02 03-13-47](https://github.com/user-attachments/assets/f4d95fa6-7413-4146-a0f7-d7a0ff2f3f46)
+
+![Screenshot from 2025-04-02 03-13-54](https://github.com/user-attachments/assets/54ed2aee-3009-4060-b6c3-04a2cddd43fa)
+
+
+
+This is a **Web3 Modal Starter** template that supports **Web3Modal**, **Wagmi**, **Viem**, and **WalletConnect** for seamless blockchain interactions.
+
+## Features
+- **Web3Modal** integration for easy wallet connections
+- **Wagmi + Viem** for Ethereum interactions
+- **WalletConnect** support
+- **Local blockchain development with Anvil**
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 1. Clone the Repository
+```sh
+git clone https://github.com/harshshukla9/web3-modal-starter.git
+cd web3-modal-starter
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
+```sh
+npm install  # or yarn install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Configure Your Local Chain
+Modify the **`config.ts`** file to export your **WagmiChain**:
+```ts
+export const config = defaultWagmiConfig({
+  chains: [anvil], //anvil should be imported from wagmichains
+  projectId,
+  metadata,
+  ssr: true,
+  storage: createStorage({
+    storage: cookieStorage,
+  }),
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+Make sure to **add this chain** in the `config.ts` for proper connection.
 
-## Learn More
+### 4. Running a Local Blockchain (Anvil)
+For local development, use **Anvil** (a fast Ethereum node from Foundry):
+```sh
+anvil
+```
+Ensure that your **smart contracts are deployed** on Anvil to interact with them.
 
-To learn more about Next.js, take a look at the following resources:
+### 5. Start the Project
+```sh
+npm run dev  # or yarn dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
+- Connect to wallets via **Web3Modal**
+- Interact with smart contracts using **Wagmi + Viem**
+- Use Anvil for local development and transactions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing
+Feel free to open issues and contribute to the project!
 
-## Deploy on Vercel
+## License
+MIT
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
